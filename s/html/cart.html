@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <style>
+        .header {
+            background-color: #ff99c8;
+            color: white;
+            padding: 15px 0;
+            border-bottom: 4px solid #ff80b3;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+          
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: #ff6699;
+            color: white;
+        }
+
+        /* Search Bar and Button */
+        #search-bar-container {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        #search-bar {
+            border: 1px solid #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        #search-bar:focus {
+            border-color: #ff80b3;
+            box-shadow: 0 0 5px #ff80b3;
+        }
+
+        #search-button {
+            background-color: #ff6699;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 6px 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        #search-button:hover {
+            background-color: #ff3377;
+        }
+        .cart {
+            background: linear-gradient(135deg, #fdfdfd, #f7f7f7);
+            border-top: 5px solid #ff8585;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 80px;
+        }
+        
+        .cart h2 {
+            font-size: 2.5rem;
+            color: #333;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .list-group-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 10px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        #checkout-btn {
+            background: linear-gradient(135deg, #ff8585, #ff5b5b);
+            border: none;
+            color: white;
+            padding: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        #checkout-btn:hover {
+            background: linear-gradient(135deg, #ff5b5b, #ff8585);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+        }
+        
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <!-- Search Bar at the top-left -->
+                <div id="search-bar-container" class="d-flex">
+                    <input type="text" placeholder="Search for books..." id="search-bar">
+                    <button id="search-button">Go</button>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link text-white" href="home.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="boobks.html">Books</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="log-in.html">Log in</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <section id="cart" class="cart py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Your Shopping Cart 🛒</h2>
+    
+            <!-- Cart Items -->
+            <div id="cart-content" class="row justify-content-center">
+                <div class="col-md-8">
+                    <ul id="cart-items" class="list-group mb-3">
+                        <!-- Dynamic cart items will be added here -->
+                    </ul>
+                    <p id="empty-cart-message" class="text-center text-muted">Your cart is empty! Start adding your favorite books. 😊</p>
+                </div>
+            </div>
+    
+            <!-- Summary Section -->
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-6 text-center">
+                    <p id="total-price" class="fs-4 fw-bold text-primary">Total: $0</p>
+                    <button id="checkout-btn" class="btn btn-danger btn-lg w-50 shadow-sm">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+<!--- link javscript  file-->
+<script src="../js/script.js"></script>
+
+</body>
+</html>

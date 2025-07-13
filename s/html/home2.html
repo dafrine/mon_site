@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/home.css" />
+
+    <style>
+      .header {
+        background-color: #ff99c8;
+        color: white;
+        padding: 15px 0;
+        border-bottom: 4px solid #ff80b3;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        padding: 10px 15px;
+        transition: all 0.3s ease;
+        border-radius: 5px;
+    }
+
+    nav ul li a:hover {
+        background-color: #ff6699;
+        color: white;
+    }
+
+    /* Search Bar and Button */
+    #search-bar-container {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    #search-bar {
+        border: 1px solid #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    #search-bar:focus {
+        border-color: #ff80b3;
+        box-shadow: 0 0 5px #ff80b3;
+    }
+
+    #search-button {
+        background-color: #ff6699;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 6px 10px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+    }
+
+    #search-button:hover {
+        background-color: #ff3377;
+    }
+        main{
+          width: min(1200px, 90vw);
+          margin: auto;
+        }
+        .slider{
+          width: 100%;
+          height: var(--height);
+          overflow: hidden;
+          mask-image: linear-gradient(
+              to right,
+              transparent,
+              #000 10% 90%,
+              transparent
+          );
+        }
+        .slider .list{
+          display: flex;
+          width: 100%;
+          min-width: calc(var(--width) * var(--quantity));
+          position: relative;
+        }
+        .slider .list .item{
+          width: var(--width);
+          height: var(--height);
+          position: absolute;
+          left: 100%;
+          animation: autoRun 10s linear infinite;
+          transition: filter 0.5s;
+          animation-delay: calc( (10s / var(--quantity)) * (var(--position) - 1) - 10s)!important;
+        }
+        .slider .list .item img{
+          width: 100%;
+        }
+        @keyframes autoRun{
+          from{
+              left: 100%;
+          }to{
+              left: calc(var(--width) * -1);
+          }
+        }
+        .slider:hover .item{
+          animation-play-state: paused!important;
+          filter: grayscale(1);
+        }
+        .slider .item:hover{
+          filter: grayscale(0);
+        }
+        .slider[reverse="true"] .item{
+          animation: reversePlay 10s linear infinite;
+        }
+        @keyframes reversePlay{
+          from{
+              left: calc(var(--width) * -1);
+          }to{
+              left: 100%;
+          }
+        }
+        
+    </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <!-- Search Bar at the top-left -->
+            <div id="search-bar-container" class="d-flex">
+                <input type="text" placeholder="Search for books..." id="search-bar">
+                <button id="search-button">Go</button>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link text-white" href="home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="boobks.html">Books</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="log-in.html">Log in</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <h1>Welcome to the Online Library</h1>
+    <p id="greeting">Hello! Let's find you a great book today!</p>
+  </header>
+
+  <section id="home" class="home">
+    <h2>Discover Your Next Favorite Book ❤️</h2>
+    <p>Browse through our collection and find books you'll love.</p>
+
+    <p>
+      "Our online library is your gateway to a world of books at your
+      fingertips. From timeless classics to modern bestsellers, explore our
+      carefully curated collection that caters to every reader’s taste.
+      Whether you're seeking knowledge, adventure, or inspiration, we’re here
+      to help you find your next favorite read. Start your journey today and
+      let stories transform your world! 😊"
+    </p>
+  </section>
+
+  <section id="books" class="books">
+    <h2>Books for Sale 📚</h2>
+    <div class="book-list">
+      <div class="book">
+        <img
+          src="../img/005.jpg"
+        />
+        <h3>005</h3>
+        <p>Price: $10</p>
+        <p class="hover-details">
+          Author: chahd korban | Genre: dark romantic
+        </p>
+        <a href="cart.html"
+          ><button onclick="addToCart('Book Title 1', 10)">
+            Add to Cart
+          </button></a
+        >
+        <div class="d-flex justify-content-between">
+          <a href="info.html"
+            ><button
+              class="btn btn-info"
+              onclick=" avoirPlus('Book Title 1')"
+            >
+              Avoir Plus
+            </button></a
+          >
+        </div>
+      </div>
+      <div class="book">
+        <img
+          src="data:image/jpeg;base64,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"
+          alt="Book 2"
+        />
+        <h3>Twisted 1: Twisted Love</h3>
+        <p>Price: $15</p>
+        <p class="hover-details">Author:ana huang | Genre: romantic</p>
+        <a href="cart.html"
+          ><button onclick="addToCart('book title 2')">Add to Cart</button></a
+        >
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-info" onclick="avoirPlus('Book Title 1')">
+            Avoir Plus
+          </button>
+        </div>
+      </div>
+      <div class="book">
+        <img
+          src="https://www.tirryaq.com/wp-content/uploads/2024/04/394606.jpg"
+          alt="Book 3"
+        />
+        
+        <h3>آرسس</h3>
+        <p>Price: $5</p>
+        <p class="hover-details">Author:ahmmed hamdan | Genre:fantazia</p>
+        <button onclick="addToCart('Book Title 3', 15)">Add to Cart</button>
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-info" onclick="avoirPlus('Book Title 1')">
+            Avoir Plus
+          </button>
+        </div>
+      </div>
+      <div class="book">
+        <img
+          src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1722869215i/217198889.jpg"
+          alt="Book 2"
+        />
+        <h3>اكتب حتى لا ياكلني الشيطان</h3>
+        <p>Price: $20</p>
+        <p class="hover-details">Author:mariam al hissi | Genre:horror</p>
+        <button onclick="addToCart('Book Title ', 20)">Add to Cart</button>
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-info" onclick="avoirPlus('Book Title 1')">
+            Avoir Plus
+          </button>
+        </div>
+      </div>
+      <main>
+        
+        <div class="slider" reverse="true" style="
+        --width: 200px;
+        --height: 200px;
+        --quantity: 9;
+    ">
+        <div class="list">
+            <div class="item" style="--position: 1"><img src="../img/book10.jpg" alt=""></div>
+            <div class="item" style="--position: 2"><img src="../img/book11.jpg" alt=""></div>
+            <div class="item" style="--position: 3"><img src="../img/book3.jpg" alt=""></div>
+            <div class="item" style="--position: 4"><img src="../img/book4.jpg" alt=""></div>
+            <div class="item" style="--position: 5"><img src="../img/book5.jpg" alt=""></div>
+            <div class="item" style="--position: 6"><img src="../img/book6.jpg" alt=""></div>
+            <div class="item" style="--position: 7"><img src="../img/book7.jpg" alt=""></div>
+            <div class="item" style="--position: 8"><img src="../img/book8.jpg" alt=""></div>
+            <div class="item" style="--position: 9"><img src="../img/book9.jpg" alt=""></div>
+        </div>
+    </div>
+    </main>
+      <div class="book">
+        <img
+          src="../img/book16.jpg"
+          alt="Book 2"
+        />
+        <h3>It Ends With Us</h3>
+        <p>Price: $15</p>
+        <p class="hover-details">Author: Colleen Hoover | Genre:romance</p>
+        <button onclick="addToCart('Book Title 4', 15)">Add to Cart</button>
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-info" onclick="avoirPlus('Book Title 1')">
+            Avoir Plus
+          </button>
+        </div>
+      </div>
+      <div class="book">
+        <img
+          src="../img/book15.jpg"
+          alt="Book 2"
+        />
+        <h3>إنني أتعفن رعباً</h3>
+        <p>Price: $15</p>
+        <p class="hover-details">Author: mariam al hissi | Genre:horror</p>
+        <button onclick="addToCart('Book Title 4', 15)">Add to Cart</button>
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-info" onclick="avoirPlus('Book Title 1')">
+            Avoir Plus
+          </button>
+        </div>
+      </div>
+
+      <div class="book">
+        <img
+          src="https://www.tirryaq.com/wp-content/uploads/2023/05/product_11631630542.jpg"
+          alt="Book "
+        />
+        <h3>خوف</h3>
+        <p>Price: $10</p>
+        <p class="hover-details">Author: oussama el moslem | Genre:horrer</p>
+        <button onclick="addToCart('Book Title 5', )">Add to Cart</button>
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-info" onclick="avoirPlus('Book Title 1')">
+            Avoir Plus
+          </button>
+        </div>
+      </div>
+      <div class="book">
+        <img
+          src="https://ronahi.net/wp-content/uploads/2025/01/%D9%87%D9%84-%D9%8A%D8%B5%D8%A8%D8%AD-%D8%A7%D9%84%D8%B4%D8%B9%D8%B1-%D8%B3%D9%8A%D9%86%D9%85%D8%A7%D8%A6%D9%8A%D8%A7-3-389x375.png"
+          alt="Book 2"
+        />
+        <h3>هيبتا</h3>
+        <p>Price: $15</p>
+        <p class="hover-details">Author: mohammed sadik | Genre:romantic</p>
+        <button onclick="addToCart('Book Title 6', 15)">Add to Cart</button>
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-info" onclick="avoirPlus('Book Title 1')">
+            Avoir Plus
+          </button>
+        </div>
+      </div>
+      <div class="book">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8s20CPkOrLRkpVJRrMhUm08b_iEElDIHx_Q&s"
+          alt="Book 2"
+        />
+        <h3>العازف المجنون</h3>
+        <p>Price: $15</p>
+        <p class="hover-details">Author:salah soltan | Genre: romantic</p>
+        <button onclick="addToCart('Book Title 7', 15)">Add to Cart</button>
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-info" onclick="avoirPlus('Book Title 1')">
+            Avoir Plus
+          </button>
+        </div>
+      </div>
+      <div class="book">
+        <img
+          src="../img/it-starts-with-us-9781398518209_lg.webp"
+          alt="Book 2"
+        />
+        <h3>it star with us</h3>
+        <p>Price: $15</p>
+        <p class="hover-details">
+          Author:collen hoover | Genre:romantic novels
+        </p>
+        <button onclick="addToCart('Book Title 8', 15)">Add to Cart</button>
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-info" onclick="avoirPlus('Book Title 1')">
+            Avoir Plus
+          </button>
+        </div>
+      </div>
+      <div class="book">
+        <img
+          src="https://m.media-amazon.com/images/I/81n3QXOwA1L._AC_UF894,1000_QL80_.jpg"
+          alt="Book 2"
+        />
+        <h3>titanic</h3>
+        <p>Price: $15</p>
+        <p class="hover-details">
+          Author: Alexander Bell Filson Young| Genre:romantic
+        </p>
+        <button onclick="addToCart('Book Title 9', 15)">Add to Cart</button>
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-info" onclick="avoirPlus('Book Title 1')">
+            Avoir Plus
+          </button>
+        </div>
+      </div>
+      <div class="book">
+        <img
+          src="https://cdn.salla.sa/aaRKD/7faOrEoAXLMILvyGyWJkEPxbU9foYbudIXfgiOmX.jpg"
+          alt="Book 2"
+        />
+        <h3>انين</h3>
+        <p>Price: $15</p>
+        <p class="hover-details">Author: noura seaidi | Genre:sad</p>
+        <button onclick="addToCart('Book Title 10', 15)">Add to Cart</button>
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-info" onclick="avoirPlus('Book Title 1')">
+            Avoir Plus
+          </button>
+        </div>
+      </div>
+      <div class="book">
+        <img
+          src="https://i0.wp.com/jeevesreads.com/wp-content/uploads/2024/03/img_6168-2-1.jpg?resize=1200%2C1200&ssl=1&w=640"
+          alt="Book 2"
+        />
+        <h3>how to end a love story</h3>
+        <p>Price: $15</p>
+        <p class="hover-details">Author: yulin kuang | Genre:romantic</p>
+        <button onclick="addToCart('Book Title 11', 15)">Add to Cart</button>
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-info" onclick="avoirPlus('Book Title 1')">
+            Avoir Plus
+          </button>
+        </div>
+      </div>
+      <div class="book">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvvQi4WffVY5AQfmEV4c70ap0NW-e61aCeOA&s"
+          alt="Book 2"
+        />
+        <h3>قنديشة اللعنة المدفونة</h3>
+        <p>Price: $15</p>
+        <p class="hover-details">Author: iman al nadifi | Genre:horror</p>
+        <button onclick="addToCart('Book Title 12', 15)">Add to Cart</button>
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-info" onclick="avoirPlus('Book Title 1')">
+            Avoir Plus
+          </button>
+        </div>
+      </div>
+
+      <div class="book">
+        <img
+          src="https://m.media-amazon.com/images/M/MV5BYTA4ODg5YWUtYmZiYy00Y2M4LWE0NjEtODE5MzhkYmJmZGEwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+          alt="Book 2"
+        />
+        <h3>the fault in our stars</h3>
+        <p>Price: $15</p>
+        <p class="hover-details">Author: john green | Genre:romantic</p>
+        <button onclick="addToCart('Book Title 13', 15)">Add to Cart</button>
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-info" onclick="avoirPlus('Book Title 1')">
+            Avoir Plus
+          </button>
+        </div>
+      </div>
+      <!-- Add more books as needed -->
+    </div>
+  </section>
+  <section id="cart" class="cart">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p id="total-price">Total: $0</p>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Email: defrinekhadija@gmail.com</p>
+    <p>Phone:0607260014</p>
+  </section>
+
+  <!--- link javscript  file-->
+  <script src="../js/scripte.js"></script>
+</body>
+</html>

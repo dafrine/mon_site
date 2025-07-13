@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <title>Document</title>
+    <style>
+        .header {
+            background-color: #ff99c8;
+            color: white;
+            padding: 15px 0;
+            border-bottom: 4px solid #ff80b3;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+          
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 15px;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: #ff6699;
+            color: white;
+        }
+
+        /* Search Bar and Button */
+        #search-bar-container {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        #search-bar {
+            border: 1px solid #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        #search-bar:focus {
+            border-color: #ff80b3;
+            box-shadow: 0 0 5px #ff80b3;
+        }
+
+        #search-button {
+            background-color: #ff6699;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 6px 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        #search-button:hover {
+            background-color: #ff3377;
+        }
+        .contact {
+            background: linear-gradient(135deg, #fff7f7, #ffeded);
+            padding: 60px 20px;
+            color: #444;
+            text-align: center;
+            position: relative;
+        }
+        
+        .contact h2 {
+            margin-top: 50px;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ff8585;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact .lead {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        
+        .contact i {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        
+        .contact i:hover {
+            transform: scale(1.2);
+            color: #ff5a5a;
+        }
+        
+        .contact h5 {
+            margin-top: 10px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+        
+        .contact p {
+            font-size: 1rem;
+            color: #555;
+        }
+        
+        .contact form .form-control {
+            border: 1px solid #ffc4c4;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact form .form-control:focus {
+            border-color: #ff8585;
+            box-shadow: 0 0 5px rgba(255, 133, 133, 0.5);
+        }
+        
+        .contact form .btn-primary {
+            background-color: #ff8585;
+            border: none;
+            padding: 10px 25px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .contact form .btn-primary:hover {
+            background-color: #ff5a5a;
+            transform: scale(1.1);
+        }
+        
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <!-- Search Bar at the top-left -->
+                <div id="search-bar-container" class="d-flex">
+                    <input type="text" placeholder="Search for books..." id="search-bar">
+                    <button id="search-button">Go</button>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link text-white" href="home.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="boobks.html">Books</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="about.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="log-in.html">Log in</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <section id="contact" class="contact py-5">
+        <div class="container text-center">
+            <h2>Contact Us</h2>
+            <p class="lead">We’d love to hear from you! Reach out to us via any of the options below:</p>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <i class="fas fa-envelope fa-3x text-primary mb-3"></i>
+                    <h5>Email</h5>
+                    <p>support@onlinelibrary.com</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-phone-alt fa-3x text-success mb-3"></i>
+                    <h5>Phone</h5>
+                    <p>0607260014</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fas fa-map-marker-alt fa-3x text-danger mb-3"></i>
+                    <h5>Location</h5>
+                    <p>123 Book St, Library City</p>
+                </div>
+            </div>
+    
+            <!-- Contact Form -->
+            <form class="mt-5">
+                <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control mb-3" placeholder="Your Name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="email" class="form-control mb-3" placeholder="Your Email" required>
+                    </div>
+                </div>
+                <textarea class="form-control mb-3" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
